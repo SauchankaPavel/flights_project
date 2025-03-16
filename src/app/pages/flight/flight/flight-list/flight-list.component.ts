@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { FlightItem } from '../../../../services/flights.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FlightItem, FlightsService } from '../../../../services/flights.service';
 
 @Component({
   selector: 'app-flight-list',
@@ -9,4 +9,13 @@ import { FlightItem } from '../../../../services/flights.service';
 })
 export class FlightListComponent {
   @Input() flightItems: FlightItem[] = []
+  @Input() pageSize: number = 0
+
+  @Output() showMoreEmitter = new EventEmitter();
+  constructor(public flightService: FlightsService){
+
+  }
+  showMore(){
+    this.showMoreEmitter.emit()
+  }
 }

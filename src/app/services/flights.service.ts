@@ -11,11 +11,12 @@ import { FormState } from "../pages/traveler/traveler.component";
 export class FlightsService {
     baseUrl: string = "https://public-front-bucket.s3.eu-central-1.amazonaws.com/test/test_flights.json"
     private selectedFlight: FlightItem | undefined;
-    private formState: FormState | undefined
+    private formState: FormState | undefined;
+    totalCountOfItems = 0;
     constructor(private http: HttpClient){
   
     }
-    getFlights(formValue?: FilterFormState): Observable<FlightItem[]>{
+    getFlights( pageSize: number, pageIndex: number, formValue?: FilterFormState,): Observable<FlightItem[]>{
         return this.http.get<FlightItem[]>(this.baseUrl).pipe(
             map((res: FlightItem[]) => {
               let mappedResult = res.map(
@@ -48,7 +49,12 @@ export class FlightsService {
               return mappedResult
             })
         )
-        .pipe(map((data) => data.slice(0, 5)));
+        .pipe( map((data) => {
+          this.totalCountOfItems = data.length
+          const startIndex = pageIndex * pageSize;
+          const endIndex = startIndex + pageSize;
+          return data.slice(startIndex, endIndex);
+        }));
     }
 
     setFlight(flight: FlightItem) {

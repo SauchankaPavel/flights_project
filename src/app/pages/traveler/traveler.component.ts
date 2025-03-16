@@ -17,7 +17,7 @@ export class TravelerComponent implements OnInit{
   countries: string[] = ['United States', 'Canada', 'United Kingdom', 'Australia', 'Germany']; 
 
   registrationForm: FormGroup | undefined;
-  constructor (private flightService: FlightsService, private fb: FormBuilder){
+  constructor (public flightService: FlightsService, private fb: FormBuilder){
     this.registrationForm = this.fb.group(
       {
         firstName: ['', [Validators.required]],
@@ -60,7 +60,9 @@ export class TravelerComponent implements OnInit{
 
   submitForm(){
     console.log(this.registrationForm?.value)
+    console.log(this.currentFlight?.id)
     alert(JSON.stringify(this.registrationForm?.value))
+    alert(JSON.stringify(this.currentFlight?.id))
   }
 }
 
