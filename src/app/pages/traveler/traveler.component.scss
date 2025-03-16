@@ -1,0 +1,41 @@
+.travelers-container{
+    display: flex;
+    max-width: 880px;
+    margin: 20px auto;
+    justify-content: space-between;
+    .travelers-info{
+        width: 65%;
+        .form-container{
+            border: 1px solid #E2E0E3;
+            border-radius: 12px;
+            padding: 16px;
+        }
+    }
+    .price-info{
+        width: 30%;
+        .price-summary{
+            border: 1px solid #E2E0E3;
+            border-radius: 12px;
+            padding: 16px;
+        }
+    }
+    
+}
+
+.form-field{
+    display: flex;
+    flex-direction: column;
+}
+
+.date-form-data{
+    display: flex;
+    justify-content: space-around;
+    .form-field{
+        width: 30%;
+    }
+}
+
+.actions{
+    display: flex;
+    justify-content: space-between;
+}

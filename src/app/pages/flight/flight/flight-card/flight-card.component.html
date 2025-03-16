@@ -1,0 +1,35 @@
+<div class="flight-container">
+    <div class="flights-list-container">
+        <div *ngFor="let flight of flightItem?.flights" class="flight-details">
+            <div class="logo">
+                <img [src]="'https://d263qmvlt29h99.cloudfront.net/' + flight.airline + '.svg'" alt="Airline Logo">
+            </div>
+            <div class="flight-details-info">
+                <div class="time">{{flight.departure_time}}</div>
+                <div class="date">
+                    {{flight.departure_airport}} &#9679; {{flight.departure_date | date: 'MMM dd'}}
+                </div>
+            </div>
+            <div class="flight-details-info">
+                <div class="time">{{flight.arrival_time}}</div>
+                <div class="date">
+                    {{flight.arrival_airport}} &#9679; {{flight.arrival_date | date: 'MMM dd'}}
+                </div>
+            </div>
+            <div class="flight-details-info">
+                <div class="time">{{flight.duration_minutes | timeFormat}}</div>
+                <div class="date">
+                    {{flight.stops?`${flight.stops} Stops`:'Nonstops'}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="price">$ {{flightItem?.price}}</div>
+        <div class="status">Per adult</div>
+        <button class="book" mat-fab extended (click)="bookFlight(flightItem)">
+            Book
+        </button>
+    </div>
+
+</div>

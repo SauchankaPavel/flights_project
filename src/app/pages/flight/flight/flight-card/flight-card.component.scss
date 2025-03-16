@@ -1,0 +1,49 @@
+.flight-container{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #E2E0E3;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    .flights-list-container{
+        height: 100%;
+        width: 414px;
+        .flight-details{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            .date{
+                color: #898390;
+            }
+        }
+        .logo img {
+            width: 30px;
+            height: auto;
+          }
+    }
+    .actions{
+        width: 210px;
+        border-left: 1px solid #E2E0E3;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        .price{
+            font-size: 20px;
+            margin: 0 auto;
+            font-weight: 600;
+            
+        }
+        .status{
+            font-size: 14px;
+            margin: 10px auto;
+            font-weight: 400;
+            color: #898390;
+
+        }
+        .book{
+            margin: 0 auto;
+            width: 80%;
+        }
+    }
+}
