@@ -44,6 +44,10 @@
         background-color: #0A1D3D;
         height: 44px;
     }
+    .book:disabled{
+        color: #FFFFFF;
+        background-color: gray;
+    }
     .back{
         border: 1px solid #E2E0E3;
         color: #0A1D3D;
@@ -78,4 +82,8 @@
 }
 .rotated-icon{
     transform: rotate(45deg);
+}
+
+mat-label{
+    color: #898390;
 }

@@ -9,7 +9,7 @@
     </div>
     <div class="slider-container">
         <mat-label>Price</mat-label>
-        <mat-label>{{filterForm.controls["priceRangeStart"].value}}-{{filterForm.controls["priceRangeEnd"].value}}</mat-label>
+        <div>{{filterForm.controls["priceRangeStart"].value}} - {{filterForm.controls["priceRangeEnd"].value}}</div>
 
         <mat-slider min="0" max="5000">
             <input formControlName="priceRangeStart"  matSliderStartThumb>
