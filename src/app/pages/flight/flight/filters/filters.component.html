@@ -18,9 +18,11 @@
     </div>
     <div class="stop-container">
         <mat-label>Stops</mat-label>
-        <mat-checkbox >All stops</mat-checkbox>
-        <mat-checkbox >Nonstop</mat-checkbox>
-        <mat-checkbox>1 stop</mat-checkbox>
-        <mat-checkbox>2 stops</mat-checkbox>
+        <mat-checkbox 
+            *ngFor="let option of checkboxOptions"
+            [checked]="isStopSelected(option.value)"
+            (change)="$event.checked && onStopSelect(option.value)"
+        >{{option.label}}
+        </mat-checkbox>
     </div>
 </form>

@@ -21,7 +21,8 @@ export class FlightsService {
                   return {
                     flights: result.flights,
                     id: result.id,
-                    price: result.price
+                    price: result.price,
+                    totalStops: result.flights.reduce((total, flight) => total + flight.stops, 0)
                   };
                 }
               );
@@ -30,6 +31,11 @@ export class FlightsService {
                 mappedResult =  mappedResult.filter(item => item.price >= formValue?.priceRangeStart && item.price <= formValue.priceRangeEnd);
                 
               }
+              //filter by stops
+              if(formValue?.stops&&formValue?.stops>0){
+                mappedResult = mappedResult.filter(item => item.totalStops === formValue.stops-1);
+              }
+              console.log(mappedResult)
               //sort
               if (formValue?.sorting){
                 if(formValue.sorting==="Price (Lowest)"){
@@ -49,7 +55,7 @@ export type FlightItem = {
     flights: Flight[];
     id: number;
     price: number
-  
+    totalStops: number
   }
   
   export type Flight = {
