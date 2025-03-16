@@ -1,18 +1,17 @@
 # Flights Project ✈️
 
-Простое Angular-приложение для просмотра информации о рейсах.
 
-## 🚀 Как запустить локально
+## 🚀 How to run locally
 
-1. **Клонируйте репозиторий**  
+1. **Clone repo**  
    ```sh
    git clone https://github.com/SauchankaPavel/flights_project.git
    cd flights_project
 
-2. **Установите зависимости**  
+2. **Install dependencies**  
    ```sh
-  npm install
+   npm install
 
-3. **Запустите приложение**  
+3. **Run the app**  
    ```sh
    ng serve
