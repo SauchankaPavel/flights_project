@@ -13,7 +13,6 @@
    ```sh
   npm install
 
-
 3. **Запустите приложение**  
    ```sh
    ng serve
