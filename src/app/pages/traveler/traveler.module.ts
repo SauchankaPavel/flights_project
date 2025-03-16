@@ -10,6 +10,7 @@ import { MatCheckbox } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRadioButton, MatRadioModule } from '@angular/material/radio';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { MatRadioButton, MatRadioModule } from '@angular/material/radio';
     MatButtonModule,
     ReactiveFormsModule,
     FormsModule,
-    MatRadioModule
+    MatRadioModule,
+    MatIconModule
   ]
 })
 export class TravelerModule { }

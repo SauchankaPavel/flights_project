@@ -1,6 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { debounceTime } from 'rxjs';
+import { debounceTime, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-filters',
@@ -9,7 +9,7 @@ import { debounceTime } from 'rxjs';
   templateUrl: './filters.component.html',
   styleUrl: './filters.component.scss'
 })
-export class FiltersComponent implements OnInit{
+export class FiltersComponent implements OnInit, OnDestroy{
   sortingValues: string[] = ["Price (Lowest)", "Price (Highest)"]
   priceRangeStart = 0;
   priceRangeEnd = 4400;
@@ -26,21 +26,25 @@ export class FiltersComponent implements OnInit{
     stops: new FormControl(0)
   });
   @Output() filterFormChange = new EventEmitter<FilterFormState>();
+  private destroy$ = new Subject<void>();
+
   constructor(){
 
   }
    
   ngOnInit(): void {
     this.filterForm.valueChanges.pipe(
-      debounceTime(500)
-    ).subscribe((res)=>{
+      debounceTime(500),
+      takeUntil(this.destroy$)
+    ).subscribe(() => {
+      const { sorting, priceRangeStart, priceRangeEnd, stops } = this.filterForm.value;
       this.filterFormChange.emit({
-        sorting: this.filterForm.controls['sorting'].value || "",
-        priceRangeStart: this.filterForm.controls['priceRangeStart'].value || this.priceRangeStart,
-        priceRangeEnd: this.filterForm.controls['priceRangeEnd'].value || this.priceRangeEnd,
-        stops: this.filterForm.controls['stops'].value || 0,
-      })
-    })
+        sorting: sorting || "Price (Lowest)",
+        priceRangeStart: priceRangeStart ?? this.priceRangeStart,
+        priceRangeEnd: priceRangeEnd ?? this.priceRangeEnd,
+        stops: stops ?? 0,
+      });
+    });
   }
 
   isStopSelected(value: number): boolean {
@@ -50,6 +54,11 @@ export class FiltersComponent implements OnInit{
   // Method to handle checkbox change
   onStopSelect(value: number): void {
     this.filterForm.get('stops')?.setValue(value);
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
 
