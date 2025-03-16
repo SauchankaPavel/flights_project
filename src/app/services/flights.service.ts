@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { map, Observable } from "rxjs";
 import { FilterFormState } from "../pages/flight/flight/filters/filters.component";
+import { FormState } from "../pages/traveler/traveler.component";
 
 @Injectable({providedIn: 
     "root"
@@ -9,7 +10,8 @@ import { FilterFormState } from "../pages/flight/flight/filters/filters.componen
 
 export class FlightsService {
     baseUrl: string = "https://public-front-bucket.s3.eu-central-1.amazonaws.com/test/test_flights.json"
-
+    private selectedFlight: FlightItem | undefined;
+    private formState: FormState | undefined
     constructor(private http: HttpClient){
   
     }
@@ -35,7 +37,6 @@ export class FlightsService {
               if(formValue?.stops&&formValue?.stops>0){
                 mappedResult = mappedResult.filter(item => item.totalStops === formValue.stops-1);
               }
-              console.log(mappedResult)
               //sort
               if (formValue?.sorting){
                 if(formValue.sorting==="Price (Lowest)"){
@@ -48,6 +49,22 @@ export class FlightsService {
             })
         )
         .pipe(map((data) => data.slice(0, 5)));
+    }
+
+    setFlight(flight: FlightItem) {
+      this.selectedFlight = flight;
+    }
+  
+    getFlight(): FlightItem | undefined {
+      return this.selectedFlight;
+    }
+
+    setFormState(formState: FormState) {
+      this.formState = formState;
+    }
+  
+    getFormState(): FormState | undefined {
+      return this.formState;
     }
 }
 

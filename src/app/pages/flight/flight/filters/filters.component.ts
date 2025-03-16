@@ -34,7 +34,6 @@ export class FiltersComponent implements OnInit{
     this.filterForm.valueChanges.pipe(
       debounceTime(500)
     ).subscribe((res)=>{
-      console.log(res)
       this.filterFormChange.emit({
         sorting: this.filterForm.controls['sorting'].value || "",
         priceRangeStart: this.filterForm.controls['priceRangeStart'].value || this.priceRangeStart,

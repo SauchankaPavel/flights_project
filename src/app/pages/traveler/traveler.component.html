@@ -1,1 +1,98 @@
-<p>traveler works!</p>
+<div class="travelers-container">
+    <div class="travelers-info">
+        <h2>Travelers</h2>
+        <div class="form-container">
+            <form *ngIf="registrationForm" [formGroup]="registrationForm">
+                <div class="form-field">
+                    <mat-label>First Name </mat-label>
+                    <mat-form-field >
+                        <input type="text" matInput
+                        formControlName="firstName"
+                        placeholder="First Name">
+                    </mat-form-field>
+                </div>
+                <div class="form-field">
+                    <mat-label>Last Name </mat-label>
+                    <mat-form-field >
+                        <input type="text" matInput
+                        formControlName="secondName"
+                        placeholder="Last Name">
+                    </mat-form-field>
+                </div>
+                <div class="form-field">
+                    <mat-label>Gender </mat-label>
+                    <mat-radio-group aria-label="Select an option"
+                    formControlName="gender"
+                    >
+                        <mat-radio-button value="male">Male</mat-radio-button>
+                        <mat-radio-button value="female">Female</mat-radio-button>
+                      </mat-radio-group>
+                </div>
+                <div class="date-form-data">
+                    <div class="form-field">
+                        <mat-label>Month of Birth </mat-label>
+                        <mat-form-field >
+                            <mat-select formControlName="monthOfBirth">
+                                <mat-option *ngFor="let option of months" [value]=option>{{option}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field">
+                        <mat-label>Day of Birth </mat-label>
+                        <mat-form-field >
+                            <mat-select formControlName="dayOfBirth">
+                                <mat-option *ngFor="let option of days" [value]=option>{{option}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field">
+                        <mat-label>Year of Birth </mat-label>
+                        <mat-form-field >
+                            <mat-select formControlName="yearOfBirth">
+                                <mat-option *ngFor="let option of years" [value]=option>{{option}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="form-field">
+                    <mat-label>Citizenship </mat-label>
+                        <mat-form-field >
+                            <mat-select formControlName="citizenship">
+                                <mat-option *ngFor="let option of countries" [value]=option>{{option}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                </div>
+                <div class="actions">
+                    <button class="book" mat-button extended >
+                        Back
+                    </button>
+                    <button class="book" [disabled]="registrationForm.invalid" (click)="submitForm()" mat-fab extended>
+                        Confirm
+                    </button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+    <div class="price-info">
+        <h2>Price summary</h2>
+        <div class="price-summary">
+            <div class="cost">
+                <div>
+                    Flight
+                </div>
+                <div>
+                    $ {{currentFlight?.price}}
+                </div>
+            </div>
+            <div class="total">
+                <div>
+                    Total
+                </div>
+                <div>
+                    $ {{currentFlight?.price}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

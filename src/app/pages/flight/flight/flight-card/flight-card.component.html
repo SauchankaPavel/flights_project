@@ -27,7 +27,7 @@
     <div class="actions">
         <div class="price">$ {{flightItem?.price}}</div>
         <div class="status">Per adult</div>
-        <button class="book" mat-fab extended>
+        <button class="book" mat-fab extended (click)="bookFlight(flightItem)">
             Book
         </button>
     </div>

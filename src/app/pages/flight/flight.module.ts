@@ -36,6 +36,5 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule
   ], 
-  providers: [FlightsService]
 })
 export class FlightModule { }

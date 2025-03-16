@@ -18,15 +18,12 @@ export class FlightComponent implements OnInit{
 
   ngOnInit(): void {
     this.flightService.getFlights().subscribe((res)=>{
-      console.log(res)
       this.currentflightItems = res
     })
   }
 
   filterFormChangeHandler(formValue: FilterFormState){
-    console.log(formValue)
     this.flightService.getFlights(formValue).subscribe((res)=>{
-      console.log(res)
       this.currentflightItems = res
     })
   }
