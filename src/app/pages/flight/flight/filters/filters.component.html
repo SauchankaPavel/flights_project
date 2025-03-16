@@ -1,0 +1,27 @@
+<div class="filters-component">
+    <div>
+        <mat-label>Sort By</mat-label>
+        <mat-form-field >
+            <mat-select>
+                <mat-option value="option1">Price (Lowest)</mat-option>
+                <mat-option value="option2">Price (Highest)</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="slider-container">
+        <mat-label>Price</mat-label>
+        <mat-label>300-400</mat-label>
+
+        <mat-slider min="200" max="500">
+            <input value="300" matSliderStartThumb>
+            <input value="400" matSliderEndThumb>
+        </mat-slider>
+    </div>
+    <div class="stop-container">
+        <mat-label>Stops</mat-label>
+        <mat-checkbox >All stops</mat-checkbox>
+        <mat-checkbox >Nonstop</mat-checkbox>
+        <mat-checkbox>1 stop</mat-checkbox>
+        <mat-checkbox>2 stops</mat-checkbox>
+    </div>
+</div>
