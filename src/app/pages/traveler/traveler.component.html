@@ -78,8 +78,9 @@
         <h2>Price summary</h2>
         <div class="price-summary">
             <div class="cost">
-                <div>
-                    Flight
+                <div class="cost-flight">
+                    <mat-icon fontIcon="flight" class="rotated-icon"></mat-icon>
+                    <div>Flight</div>
                 </div>
                 <div>
                     $ {{currentFlight?.price}}
@@ -89,7 +90,7 @@
                 <div>
                     Total
                 </div>
-                <div>
+                <div class="huge-price">
                     $ {{currentFlight?.price}}
                 </div>
             </div>
