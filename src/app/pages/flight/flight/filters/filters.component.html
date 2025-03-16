@@ -1,20 +1,19 @@
-<div class="filters-component">
+<form class="filters-component" [formGroup]="filterForm">
     <div>
         <mat-label>Sort By</mat-label>
         <mat-form-field >
-            <mat-select>
-                <mat-option value="option1">Price (Lowest)</mat-option>
-                <mat-option value="option2">Price (Highest)</mat-option>
+            <mat-select formControlName="sorting">
+                <mat-option *ngFor="let option of sortingValues" [value]=option>{{option}}</mat-option>
             </mat-select>
         </mat-form-field>
     </div>
     <div class="slider-container">
         <mat-label>Price</mat-label>
-        <mat-label>300-400</mat-label>
+        <mat-label>{{filterForm.controls["priceRangeStart"].value}}-{{filterForm.controls["priceRangeEnd"].value}}</mat-label>
 
-        <mat-slider min="200" max="500">
-            <input value="300" matSliderStartThumb>
-            <input value="400" matSliderEndThumb>
+        <mat-slider min="0" max="5000">
+            <input formControlName="priceRangeStart"  matSliderStartThumb>
+            <input formControlName="priceRangeEnd" matSliderEndThumb>
         </mat-slider>
     </div>
     <div class="stop-container">
@@ -24,4 +23,4 @@
         <mat-checkbox>1 stop</mat-checkbox>
         <mat-checkbox>2 stops</mat-checkbox>
     </div>
-</div>
+</form>

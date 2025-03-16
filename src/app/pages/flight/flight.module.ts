@@ -9,13 +9,20 @@ import { FiltersComponent } from './flight/filters/filters.component';
 import { MatOption, MatSelect } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCheckbox } from '@angular/material/checkbox';
+import { FlightsService } from '../../services/flights.service';
+import { FlightCardComponent } from './flight/flight-card/flight-card.component';
+import { MatButtonModule } from '@angular/material/button';
+import { TimeFormatPipe } from './flight/flight-card/timeFormat.pipe';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     FlightComponent,
     FlightListComponent,
-    FiltersComponent
+    FiltersComponent, 
+    FlightCardComponent,
+    TimeFormatPipe
   ],
   imports: [
     CommonModule,
@@ -24,7 +31,11 @@ import { MatCheckbox } from '@angular/material/checkbox';
     MatSelect,
     MatOption,
     MatSliderModule,
-    MatCheckbox
-  ]
+    MatCheckbox,
+    MatButtonModule,
+    ReactiveFormsModule,
+    FormsModule
+  ], 
+  providers: [FlightsService]
 })
 export class FlightModule { }

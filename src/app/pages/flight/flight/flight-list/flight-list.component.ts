@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FlightItem } from '../../../../services/flights.service';
 
 @Component({
   selector: 'app-flight-list',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './flight-list.component.scss'
 })
 export class FlightListComponent {
-
+  @Input() flightItems: FlightItem[] = []
 }

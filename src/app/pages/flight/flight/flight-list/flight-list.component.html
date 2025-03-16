@@ -1,3 +1,5 @@
 <div class="flight-list-component">
-    <p>flight-list works!</p>
+    <div *ngFor="let item of flightItems">
+        <app-flight-card [flightItem]="item"></app-flight-card>
+    </div>
 </div>
