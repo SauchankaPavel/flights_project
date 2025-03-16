@@ -14,6 +14,7 @@ import { FlightCardComponent } from './flight/flight-card/flight-card.component'
 import { MatButtonModule } from '@angular/material/button';
 import { TimeFormatPipe } from './flight/flight-card/timeFormat.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TimeAmPmPipe } from './flight/flight-card/timeAmPm.pipe';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FlightListComponent,
     FiltersComponent, 
     FlightCardComponent,
-    TimeFormatPipe
+    TimeFormatPipe,
+    TimeAmPmPipe
   ],
   imports: [
     CommonModule,

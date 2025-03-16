@@ -5,13 +5,13 @@
                 <img [src]="'https://d263qmvlt29h99.cloudfront.net/' + flight.airline + '.svg'" alt="Airline Logo">
             </div>
             <div class="flight-details-info">
-                <div class="time">{{flight.departure_time}}</div>
+                <div class="time">{{flight.departure_time | timeAmPm}}</div>
                 <div class="date">
                     {{flight.departure_airport}} &#9679; {{flight.departure_date | date: 'MMM dd'}}
                 </div>
             </div>
             <div class="flight-details-info">
-                <div class="time">{{flight.arrival_time}}</div>
+                <div class="time">{{flight.arrival_time | timeAmPm}}</div>
                 <div class="date">
                     {{flight.arrival_airport}} &#9679; {{flight.arrival_date | date: 'MMM dd'}}
                 </div>

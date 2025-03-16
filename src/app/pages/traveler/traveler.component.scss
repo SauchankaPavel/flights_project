@@ -38,6 +38,18 @@
 .actions{
     display: flex;
     justify-content: space-between;
+    .book{
+        border-radius: 8px;
+        color: #FFFFFF;
+        background-color: #0A1D3D;
+        height: 44px;
+    }
+    .back{
+        border: 1px solid #E2E0E3;
+        color: #0A1D3D;
+        border-radius: 8px;
+        height: 44px;
+    }
 }
 
 .cost{
